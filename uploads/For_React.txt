@@ -1,3 +1,0 @@
-https://mitchgavan.com/react-serverless-shop/ this site about ecommerce website with react and stripe the project had been created in ReactWS as my-shop. 
-
-https://marmelab.com/react-admin/Tutorial.html
