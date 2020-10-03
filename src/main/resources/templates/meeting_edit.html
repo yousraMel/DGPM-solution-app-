@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<title> Edit Page</title>
+</head>
+<body>
+
+		<div th:replace="header :: admin_header">
+</div>
+	
+	<div align="center">
+		<h2>Defense Edit</h2>
+		<br />
+		
+		<form th:action="@{/defense/save}" method="post" th:object="${defense}" >
+		<table cellpading="10">
+		
+			<tr> <td><label>ID:</label></td> <td><input readonly type="text" th:field="*{meetingId}" class="form-control"/></td></tr>
+			<tr> <td><label>Date and Time:</label></td> <td><input type="text" th:field="*{meetingDate}" class="form-control"/></td>
+			<td><input type="text" th:field="*{meetingTime}" class="form-control"/></td>
+			 </tr>
+			 
+			<tr> <td><label>Objective:</label></td> <td><input type="text" th:field="*{objective}" class="form-control"/></td>
+			<td><label>Notes:	</label></td> <td><textarea type="text" th:field="*{notes}" class="form-control"/></td></tr>
+			
+			<tr> <td colspan="4" align="center"> <button type="submit" class="btn-warning btn-block" >Save</button></td></tr>
+		</table>
+		</form>
+		
+	</div>
+
+</body>
+</html>

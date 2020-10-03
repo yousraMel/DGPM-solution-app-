@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- Font Awesome JS -->
+<script defer
+	src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+	integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+	crossorigin="anonymous"></script>
+<script defer
+	src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+	integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+	crossorigin="anonymous"></script>
+<link th:href="@{/css/style.css}" rel="stylesheet"></link>
+<link th:href="@{/css/style4.css}" rel="stylesheet"></link>
+
+
+<title>Form Page</title>
+</head>
+<body>
+	<div class="banner" align="center">
+		<div class="row mt-5">
+			<div class="col-md-2 ">
+				<div class="header">
+				<div th:replace="header :: sidenavbar_student(idstudent=${pfe.student.userId})"></div>
+				</div>
+
+			</div>
+			<div class="offset-md-1 col-md-7 mr-2 ">
+				<div class="fieldsethomestudent bg-light ">
+					<h2 style="color:black"> PFE </h2>
+					<hr />
+					<div class="fieldbody">
+						<div class="row mt-5" align="center">
+							<table border="0" cellpadding="10" align="center" th:object="${pfe}">
+	  		
+	  				<tr><td><label>Id:</label> </td><td th:text="${pfe.pfeId}"></td></tr>
+	  				<tr><td><label>Tilte:</label> </td><td th:text="${pfe.title}"></td></tr>
+	  				<tr><td><label>Description:</label> </td><td th:text="${pfe.description}"></td></tr>
+	  				<tr><td><label>Defense Date:</label> </td><td th:text="${pfe.defenseDate+' at '+pfe.defenseTime}"></td></tr>
+	  				<tr><td><label>Room:</label> </td><td th:text="${pfe.room}"></td></tr>
+	  				<tr><td><label>Note:</label> </td><td th:text="${pfe.note}"></td></tr>
+	  				<tr><td><label>Mention:</label> </td><td th:text="${pfe.mention}"></td></tr>
+	  				<tr><td><label>State:</label> </td><td th:text="${pfe.state}"></td></tr>
+	  				<tr><td><label>Supervisor:</label> </td><td th:text="${pfe.supervisor.lname+' '+pfe.supervisor.fname}"></td></tr>
+	  				<tr><td><label>Validator:</label> </td><td th:text="${pfe.validator.lname+' '+pfe.validator.fname}"></td></tr>
+	  				<tr><td><label>Reporter:</label> </td><td th:text="${pfe.reporter.lname+' '+pfe.reporter.fname}"></td></tr>
+	  			<!-- 	<tr><td > <a th:href="@{'/pfe/delete/' + ${pfeId}}" class="btn btn-danger btn-sm">Delete</a></td>
+	  				<td > <a  th:href="@{'/pfe/edit/' + ${pfeId}}" class="btn btn-warning btn-sm">Edit</a></td></tr> -->
+	
+	  	 </table>
+							
+						</div>
+						
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
+</body>
+</html>

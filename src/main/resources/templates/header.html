@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<link th:href="@{/css/style.css}" rel="stylesheet"></link>
+</head>
+<body>
+	<div th:fragment="index_header">
+		<div class="navbar navbar-expand-lg navbar-light bg-dark">
+			<div class="collapse navbar-collapse" id="navbarText">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><a class="nav-link "
+						style="color: white" href="#">Defense In Time <span
+							class="sr-only">(current)</span></a></li>
+
+					<li class="nav-item"><a class="nav-link" style="color: white"
+						href="#">PFE themes</a></li>
+					<li class="nav-item"><a class="nav-link" style="color: white"
+						href="#">Defenses Soon</a></li>
+					<li class="nav-item"><a class="nav-link" style="color: white"
+						href="#">Organisms work with</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div th:fragment="admin_header">
+		<div class="navbar navbar-expand-lg navbar-light bg-dark">
+			<div class="collapse navbar-collapse" id="navbarText">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><a class="nav-link "
+						style="color: white" href="#">Defense In Time <span
+							class="sr-only">(current)</span></a></li>
+
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" style="color: white" href="#"
+						id="navbarDropdown" role="button" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false"> PFE </a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="#">Action</a> <a
+								class="dropdown-item" href="#">Another action</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Something else here</a>
+						</div></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" style="color: white" href="#"
+						id="navbarDropdown" role="button" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="true">Sections</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="#">2020</a> <a
+								class="dropdown-item" href="#">2019</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">2018</a>
+						</div></li>
+					<li class="nav-item"><a class="nav-link" style="color: white"
+						href="#">Defenses Soon</a></li>
+					<li class="nav-item"><a class="nav-link" style="color: white"
+						href="#">Organisms work with</a></li>
+				</ul>
+				<form class="form-inline ">
+					<input class="form-control ml-sm-5" type="search"
+						placeholder="Search" aria-label="Search" /> <a type=" button"
+						class="btn btn-outline-light" href="">Chercher</a> 
+				</form>
+
+			</div>
+		</div>
+	</div>
+	<div th:fragment="sidenavbar_student(idstudent)">
+		<!-- Sidebar  -->
+		<div id="sidebar">
+			<div class="sidebar-header">
+				<h3>Defense In Time</h3>
+			</div>
+
+			<ul class="list-unstyled components">
+				<li class="active"><a th:href="@{'/student_home/' + ${idstudent}}" ><i class="fas fa-home"></i> Home
+				</a></li>
+				<li><a href="#"> </a> <a href="#pageSubmenu"
+					data-toggle="collapse" aria-expanded="false"
+					class="dropdown-toggle"> <i class="fas fa-copy"></i> PFE
+				</a>
+					<ul class="collapse list-unstyled" id="pageSubmenu">
+						<li><a href="#">Edit</a></li>
+						<li><a href="#">Meetings</a></li>
+						<li><a href="#">Organism</a></li>
+					</ul></li>
+				<li><a href="#"> <i class="fas fa-image"></i> Profil
+				</a></li>
+				<li><a href="#"> <i class="fas fa-question"></i> FAQ
+				</a></li>
+				<li><a href="#"> <i class="fas fa-paper-plane"></i> Contact
+				</a></li>
+			</ul>
+
+			<ul class="list-unstyled CTAs mb-0 ">
+				<li><a
+					href="#" class="download ">Go to Administration </a></li>
+				<li><a href="#" class="article ">Go to Documentation</a></li>
+			</ul>
+		</div>
+	</div>
+	
+</body>
+
+</html>

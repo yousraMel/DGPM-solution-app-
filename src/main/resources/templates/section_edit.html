@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<title> Edit Page</title>
+</head>
+<body>
+
+		<div th:replace="header :: admin_header">
+</div>
+	
+	<div align="center">
+		<h2>Section Edit</h2>
+		<br />
+		
+		<form th:action="@{/section/save}" method="post" th:object="${section}" >
+		<table cellpading="10">
+		
+			<tr> <td><label>ID:</label></td> <td><input readonly type="text" th:field="*{sectionId}" class="form-control"/></td>
+			<td><label>Name: 	</label></td> <td><input type="text" th:field="*{sectionName}" class="form-control"/></td>
+			</tr>
+			 
+			<tr> <td><label>Pfe Term:</label></td> <td><input type="text" th:field="*{pfeTerm}" class="form-control"/></td>
+			<td><label>Defense Term:	</label></td> <td><input type="text" th:field="*{defenseTerm}" class="form-control"/></td></tr>
+		
+			<tr> <td colspan="4" align="center"> <button type="submit" class="btn-warning btn-block" >Save</button></td></tr>
+		</table>
+		</form>
+		
+	</div>
+
+</body>
+</html>

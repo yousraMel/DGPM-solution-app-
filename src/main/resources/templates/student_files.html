@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:p="http://primefaces.org/ui">
+<head>
+<!-- Font Awesome JS -->
+<script defer
+	src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+	integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+	crossorigin="anonymous"></script>
+<script defer
+	src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+	integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+	crossorigin="anonymous"></script>
+<link th:href="@{/css/style.css}" rel="stylesheet"></link>
+<link th:href="@{/css/style4.css}" rel="stylesheet"></link>
+
+
+<title>Form Page</title>
+</head>
+<h:body>
+	<div class="banner" align="center">
+		<div class="row mt-5">
+			<div class="col-md-2 ">
+				<div class="header">
+				<div th:replace="header :: sidenavbar_student(idstudent=${pfe.student.userId})"></div>
+				</div>
+
+			</div>
+			<div class="offset-md-1 col-md-7 mr-2 ">
+				<div class="fieldsethomestudent bg-light ">
+					<h2 style="color:black"> PFE </h2>
+					<hr />
+					<div class="fieldbody">
+						<div class="row mt-5" align="center">
+							<label th:text="${pfe.title}"></label>
+							<br /> <br />
+						</div>
+						<div>
+							<div th:if="${message}">
+								<span class="text-success" th:text="${message}"/>
+							</div>
+						
+							<div>
+							<form th:action="@{'/file/upload/' + ${pfe.pfeId}}" method="post" enctype="multipart/form-data" th:object="${file}">
+								
+									<table>
+										<tr><td>File to upload:</td><td><input type="file" name="file" class="form-control"/></td></tr>
+										<tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+									</table>
+								</form>
+							</div>
+
+							<div>
+								<div th:if="${messageofliststate}">
+									<span th:text="${messageofliststate}"/>
+								</div>
+								<div th:if="${files}">
+									<ul>
+										<li th:each="file : ${files}">
+											<a th:href="@{'/file/download/' + ${file.filename}}" th:text="${file.filename}" />
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
+</h:body>
+</html>

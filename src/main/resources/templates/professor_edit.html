@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<title> Edit Page</title>
+</head>
+<body>
+
+		<div th:replace="header :: admin_header">
+</div>
+	
+	<div align="center">
+		<h2>Professor Edit</h2>
+		<br />
+		
+		<form th:action="@{/professor/save}" method="post" th:object="${professor}" >
+		<table cellpading="10">
+		
+			<tr> <td><label>ID:</label></td> <td><input readonly type="text" th:field="*{userId}" class="form-control"/></td>
+			</tr>
+			 
+			<tr> <td><label>First name: 	</label></td> <td><input type="text" th:field="*{fname}" class="form-control"/></td>
+			 <td><label>Last name: </label></td> <td><input type="text" th:field="*{lname}" class="form-control"/></td></tr>
+			 
+			<tr> <td><label>Birth Date:</label></td> <td><input type="text" th:field="*{birthDate}" class="form-control"/></td>
+			<td><label>CIN:	</label></td> <td><input type="text" th:field="*{cin}" class="form-control"/></td></tr>
+			
+			 <tr><td><label>Matricul:</label></td> <td><input type="text" th:field="*{matricul}" class="form-control"/></td>
+			 <td><label>Grade:</label></td> <td><input type="text" th:field="*{grade}" class="form-control"/></td></tr>
+			
+			 <tr><td><label>Tel:</label></td> <td><input type="text" th:field="*{tel}" class="form-control"/></td> 
+			 <td><label>Address:</label></td> <td><input type="text" th:field="*{address.street}" class="form-control"/></td></tr>
+			 
+			<tr> <td><label>City:</label></td> <td><input type="text" th:field="*{address.city}" class="form-control"/></td>
+			 <td><label>Country:</label></td> <td><input type="text" th:field="*{address.country}" class="form-control"/></td></tr>
+			
+			<tr> <td><label>Email:</label></td> <td><input type="text" th:field="*{email}" class="form-control"/></td>
+			<td><label>Password:	</label></td> <td><input type="password" th:field="*{password}" class="form-control"/></td></tr>
+			
+			
+			<tr> <td colspan="4" align="center"> <button type="submit" class="btn-warning btn-block" >Save</button></td></tr>
+		</table>
+		</form>
+		
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:th="http://www.thymeleaf.org"
+	 xmlns:p="http://primefaces.org/ui">
+<head> 
+	<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<link th:href="@{/css/style.css}" rel="stylesheet"></link>
+	<title> Home Page</title>
+	
+</head>
+<body>
+
+<div th:replace="header :: admin_header">
+</div>
+	<div class="banner" align="center">
+		<div class="row mt-5">		
+			<div class="offset-md-1 col-md-10 mr-2 ">
+				<div class="fieldsethomestudent bg-light ">
+				 <a th:href="@{'/professor/home/' + ${validator.userId}}" class="text-info">All pfe Lists</a> >>>>>>>  <h2> Pfe to Validate List</h2>
+	   				<br />  <br />
+	   	
+					<div class="fieldbody">		
+						<table border="1" cellpadding="10" align="center" >
+						  	<thead>
+						  		<tr>
+					  				<th>Id</th>
+					  				<th>Title</th>
+					  				<th>Student affected</th>
+					  				<th>Defense date</th>
+					  				<th>Supervisor</th>
+					  				<th>Validator</th>
+					  				<th>Reporter</th>
+						  		</tr>
+						  	</thead>
+						  	<tbody>
+					  			<tr th:each="pfe : ${pfesToValidate}">
+					  				<td th:text="${pfe.pfeId}"></td>
+					  				<td th:text="${pfe.title}"></td>
+					  				<td th:text="${pfe.student.lname+' '+pfe.student.fname}"></td>
+					  				<td th:text="${pfe.defenseDate+' at '+pfe.defenseTime}"></td>
+					  				<td th:text="${pfe.supervisor.lname+' '+pfe.supervisor.fname}"></td>
+					  				<td th:text="${pfe.validator.lname+' '+pfe.validator.fname}"></td>
+					  				<td th:text="${pfe.reporter.lname+' '+pfe.reporter.fname}"></td>
+					  				
+									<td>
+										<p><a href="#modal-10" class="btn btn-warning btn-sm">meetings</a></p>
+										<div data-ml-modal id="modal-10">
+											<a href="#!" class="modal-overlay"></a>
+											<div class="modal-dialog modal-dialog-lg">
+												<a href="#!" class="modal-close">&times;</a>
+												<h3> Meetings of <label th:text="${''+pfe.title+' '}"></label></h3>
+												<div class="modal-content newspaper">
+													<!-- <label th:text="${'pfeId:'+ pfe.pfeId}"></label> -->
+													 <table border="1" cellpadding="10" align="center" >
+													  	<thead>
+													  		<tr>
+												  				<th>Id</th>
+												  				<th>Objective</th>
+												  				<th>Date and time</th>
+												  				<th>Notes</th>
+												  				
+													  		</tr>
+													  	</thead>
+													  	<tbody>
+												  			<tr th:each="meet : ${pfe.meetings}">
+												  				<td th:text="${meet.meetingId}"></td>
+												  				<td th:text="${meet.objective}"></td>
+												  				<td th:text="${meet.meetingDate+' '+meet.meetingTime}"></td>
+												  				<td th:text="${meet.notes}"></td>
+												  			</tr>
+													  	</tbody>
+												  	 </table>				 
+												</div>
+											</div>
+										</div>
+									</td>
+
+					  			</tr>
+						  	</tbody>
+					  	 </table>						
+	  	 			</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
+</body>
+</html>

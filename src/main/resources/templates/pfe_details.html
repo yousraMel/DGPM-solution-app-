@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<link th:href="@{/css/style.css}" rel="stylesheet"></link>
+	<title> Home Page</title>
+</head>
+<body>
+	<div th:replace="header :: admin_header">
+</div>
+<a th:href="@{'/admin'}" >Admin</a>>>>><a th:href="@{'/pfe/list'}" >PFE list</a>
+	<div align="center">
+	   <h2>Pfe Details</h2>
+	  
+	   <br />  <br />
+	  	<table border="0" cellpadding="10" align="center" th:object="${pfe}">
+	  		
+	  				<tr><td><label>Id:</label> </td><td th:text="${pfeId}"></td></tr>
+	  				<tr><td><label>Tilte:</label> </td><td th:text="${pfe.title}"></td></tr>
+	  				<tr><td><label>Description:</label> </td><td th:text="${pfe.description}"></td></tr>
+	  				<tr><td><label>Defense Date:</label> </td><td th:text="${pfe.defenseDate+' at '+pfe.defenseTime}"></td></tr>
+	  				<tr><td><label>Room:</label> </td><td th:text="${pfe.room}"></td></tr>
+	  				<tr><td><label>Note:</label> </td><td th:text="${pfe.note}"></td></tr>
+	  				<tr><td><label>Mention:</label> </td><td th:text="${pfe.mention}"></td></tr>
+	  				<tr><td><label>State:</label> </td><td th:text="${pfe.state}"></td></tr>
+	  				<tr><td><label>Supervisor:</label> </td><td th:text="${pfe.supervisor.lname+' '+pfe.supervisor.fname}"></td></tr>
+	  				<tr><td><label>Validator:</label> </td><td th:text="${pfe.validator.lname+' '+pfe.validator.fname}"></td></tr>
+	  				<tr><td><label>Reporter:</label> </td><td th:text="${pfe.reporter.lname+' '+pfe.reporter.fname}"></td></tr>
+	  				<tr><td > <a th:href="@{'/pfe/delete/' + ${pfeId}}" class="btn btn-danger btn-sm">Delete</a></td>
+	  				<td > <a  th:href="@{'/pfe/edit/' + ${pfeId}}" class="btn btn-warning btn-sm">Edit</a></td></tr>
+	
+	  	 </table>
+	</div>
+
+</body>
+</html>

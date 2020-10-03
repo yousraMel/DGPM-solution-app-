@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<link th:href="@{/css/style.css}" rel="stylesheet"></link>
+	<title> Home Page</title>
+</head>
+<body>
+	<div th:replace="header :: admin_header">
+</div>
+<a th:href="@{'/admin'}" >Admin</a>
+	<div align="center">
+	   <h2> PFE List</h2>
+	   <a href="new" class="link">New pfe</a>
+	   <br />  <br />
+	  	<table border="1" cellpadding="10" align="center" >
+	  		<thead>
+	  			<tr>
+	  				<th>Id</th>
+	  				<th>Title</th>
+	  				<th>Supervisor</th>
+	  				<th>Student affected</th>
+	  				
+	  			</tr>
+	  		</thead>
+	  		<tbody>
+	  			<tr th:each="pfe : ${pfes}">
+	  				<td th:text="${pfe.pfeId}"></td>
+	  				<td th:text="${pfe.title}"></td>
+	  				<td th:text="${pfe.supervisor.lname+' '+pfe.supervisor.fname}"></td>
+	  				<td th:text="${pfe.student.lname+' '+pfe.student.fname}"></td>
+	  				
+	  				<td > <a th:href="@{'/pfe/show/' + ${pfe.pfeId}}" class="btn btn-info btn-sm">Details</a></td>
+	  				<td > <a th:href="@{'/pfe/delete/' + ${pfe.pfeId}}" class="btn btn-danger btn-sm">Delete</a></td>
+	  				<td > <a  th:href="@{'/pfe/edit/' + ${pfe.pfeId}}" class="btn btn-warning btn-sm">Edit</a></td>
+	  			</tr>
+	  		</tbody>
+	  	 </table>
+	</div>
+
+</body>
+</html>

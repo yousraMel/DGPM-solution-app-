@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<title>Form Page</title>
+</head>
+<body style="background-image:url(img/university.jpg)">
+
+	<div class="header" style="height: 260px">
+		<div th:replace="header :: index_header"></div>
+	</div>
+
+	<div class=" mt-5" align="center">
+
+		<div class="row">
+
+			<div class=" container"
+				style="opacity: 0.6; height: 300px; width: 1000px; border-radius: 5%">
+				
+				<div class="row mt-5" align="center">
+					<div class="col-lg-6">
+						<div class="card text-white bg-dark mb-3"
+							style="max-width: 18rem;">
+							<div class="card-header">
+								<a th:href="login_student_form" class="btn btn-light btn-block">Student</a>
+							</div>
+							<div class="card-body">
+								<h5 class="card-title">Defense In Time</h5>
+								<p class="card-text">Dear student, this platform will help
+									you to organize your PFE work.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="card  bg-light mb-3" style="max-width: 18rem;">
+							<div class="card-header">
+								<a th:href="login_professor_form" class="btn btn-dark btn-block">Professor</a>
+							</div>
+							<div class="card-body">
+								<h5 class="card-title">Quiq Plan</h5>
+								<p class="card-text">Dear professor, now you can know and
+									plan everything about your students work.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>
